@@ -19,12 +19,17 @@ int searchMnemonic(string s){
     return position;
 }
 
-bool isInt(string s){
+bool isValidValInput(string s){
     bool rtn = s == "" ? false : true;
-    for(int i =0; i < s.length() and rtn; i++){
-        if(!isdigit(s[0])){
-            rtn = false;
+
+    if(atoi(s.c_str()) < 16){
+        for(int i =0; i < s.length() and rtn; i++){
+            if(!isdigit(s[0])){
+                rtn = false;
+            }
         }
+    }else{
+        rtn = false;
     }
     return rtn;
 }
@@ -67,12 +72,16 @@ int main(int argc, char * argv []){
         stringstream ss(line);
         string field, value_field;
 
+        if(line == ""){
+            cout << "void line!" << endl;
+            continue;
+        }
 
         getline(ss,field,'=');
 
         getline(ss,value_field,'=');
 
-        if(isInt(value_field)){
+        if(isValidValInput(value_field)){
             if(!aloc_var(field, value_field, vars_program, values_vars)){
                     cout << "var invalid" << endl;
             }
@@ -88,8 +97,6 @@ int main(int argc, char * argv []){
                 cout << "instrucao nao encontrada" << endl;
             }
         }
-
-        
 
         if(line == "fim."){
             isExit = true;
