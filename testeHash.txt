@@ -1,0 +1,16 @@
+ AeB
+ AeBn
+ AenB
+ AoB
+ AoBn
+ AonB
+ AxB
+ AxBn
+ copiaA
+ copiaB
+ nA
+ nB
+ naeB
+ naoB
+ umL
+ zeroL
