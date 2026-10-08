@@ -33,12 +33,12 @@ int searchMnemonic(string s){
     return position;
 }
 
-bool isValidValInput(string s){
+bool isValidValue(string s){
     bool rtn = s == "" ? false : true;
-
+    s.pop_back();
     if(atoi(s.c_str()) < 16){
         for(int i =0; i < s.length() and rtn; i++){
-            if(!isdigit(s[0])){
+            if(!isdigit(s[i])){
                 rtn = false;
             }
         }
@@ -109,8 +109,8 @@ int main(int argc, char * argv []){
             getline(ss,field,'=');
 
             getline(ss,value_field,'=');
-
-            if(isValidValInput(value_field)){
+            
+            if(isValidValue(value_field)){
                 if(!aloc_var(field, value_field, vars_program, values_vars)){
                         cout << "\033[33m> Warning:" << "\033[37m" << " Variavel '"<< field <<"' Invalida. Line: "<< count_lines << endl;
                 }
