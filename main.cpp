@@ -133,7 +133,15 @@ int main(int argc, char * argv []){
                 isExit = true;
             }        
         }
+
+
         count_lines--;
+
+        if(!isExit){
+             cout << "\033[31m> Error:"<< "\033[37m" << " Programa sem marcador de final(fim.) : " << count_lines << endl;
+             return -1;
+        }
+
         cout << "\033[36m> Total Lines: "<< "\033[37m" << count_lines << endl;
         cout << "\033[30m> Interpretacao Finalizada!" << "\033[37m" << endl;
     }else{
